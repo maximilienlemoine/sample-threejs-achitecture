@@ -1,1 +1,1 @@
-console.log("Interface : READY")
+console.info("Interface : READY")

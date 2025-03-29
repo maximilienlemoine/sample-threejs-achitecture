@@ -3,8 +3,11 @@ import {RendererManager} from "./globals/renderer.ts";
 import {CamaraManager} from "./globals/camera.ts";
 import {DirectionalLightManager} from "./globals/lights/directional-light.ts";
 import {AmbientLightManager} from "./globals/lights/ambient-light.ts";
+import {CubeManager} from "./feature/cube.ts";
+import {Loader} from "./globals/loader.ts";
+import {Updater} from "./globals/updater.ts";
 
-console.log("Game : READY")
+console.info("Game : READY")
 
 // ---- Basics ---- //
 const sceneManager = new SceneManager()
@@ -26,10 +29,26 @@ const ambientLightManager = new AmbientLightManager()
 const ambientLight = ambientLightManager.getAmbientLight()
 scene.add(ambientLight)
 
+// ---- Feature ---- //
+
+const cubeManager = new CubeManager(sceneManager)
+
+
+// ---- Loader/Updater---- //
+const loader = new Loader(cubeManager)
+const updater = new Updater(cubeManager)
+loader.onLoad()
+
 
 // ---- Animation ---- //
-function animate() {
+let lastTime: number = 0;
+function animate(timestamp: number) {
+    const deltaTime = timestamp - lastTime;
+    lastTime = timestamp;
+
     renderer.render(scene, camera);
+
+    updater.onUpdate(timestamp, deltaTime);
 
     requestAnimationFrame(animate);
 }

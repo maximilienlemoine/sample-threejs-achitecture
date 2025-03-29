@@ -14,9 +14,7 @@ export class CamaraManager implements GlobalObject<Camera> {
     }
 
     setting(): void {
-        this.camera.position.y = 10;
-        this.camera.rotation.set(-5, -5, -5);
-        this.camera.position.z = 8;
+        this.camera.position.z = 10;
     }
 
     getCamera() {
