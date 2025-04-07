@@ -1,22 +1,21 @@
-import {GlobalObject} from "../../utils/interfaces/global-object.ts";
-import {AmbientLight, Light} from "three";
+import { GlobalObject } from "../../utils/interfaces/global-object.ts";
+import { AmbientLight, Light } from "three";
 
 export class AmbientLightManager implements GlobalObject<Light> {
-    protected ambientLight: Light
+    protected ambientLight: Light;
 
     constructor() {
-        this.ambientLight = this.instantiate()
-        this.setting()
+        this.ambientLight = this.instantiate();
+        this.setting();
     }
 
     instantiate(): Light {
         return new AmbientLight(0x404040, 1);
     }
 
-    setting(): void {
-    }
+    setting(): void {}
 
     getAmbientLight() {
-        return this.ambientLight
+        return this.ambientLight;
     }
 }
