@@ -3,6 +3,7 @@ import { AmbientLight, Light } from "three";
 
 export class AmbientLightManager implements GlobalObject<Light> {
     protected ambientLight: Light;
+    public ambientLightIntensity: number = 1;
 
     constructor() {
         this.ambientLight = this.instantiate();
@@ -10,7 +11,7 @@ export class AmbientLightManager implements GlobalObject<Light> {
     }
 
     instantiate(): Light {
-        return new AmbientLight(0x404040, 1);
+        return new AmbientLight(0x404040, this.ambientLightIntensity);
     }
 
     setting(): void {}
