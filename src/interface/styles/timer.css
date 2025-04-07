@@ -1,0 +1,22 @@
+#timer {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    font-size: 20px;
+}
+
+.timer-controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.timer-controls button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+}
