@@ -1,1 +1,1 @@
-console.info("Interface : READY")
+console.info("Interface : READY");

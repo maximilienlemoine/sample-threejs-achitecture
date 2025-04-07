@@ -1,15 +1,14 @@
-import {CubeManager} from "../feature/cube.ts";
-
+import { CubeManager } from "../feature/cube.ts";
 
 export class Loader {
-    private cubeManager: CubeManager
+    private cubeManager: CubeManager;
 
     constructor(_cubeManager: CubeManager) {
-        this.cubeManager = _cubeManager
+        this.cubeManager = _cubeManager;
     }
 
     onLoad() {
         console.info("Loading...");
-        this.cubeManager.onLoad()
+        this.cubeManager.onLoad();
     }
 }

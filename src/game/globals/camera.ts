@@ -1,12 +1,12 @@
 import { Camera, PerspectiveCamera } from "three";
-import {GlobalObject} from "../utils/interfaces/global-object.ts";
+import { GlobalObject } from "../utils/interfaces/global-object.ts";
 
 export class CamaraManager implements GlobalObject<Camera> {
-    protected camera: Camera
+    protected camera: Camera;
 
     constructor() {
-        this.camera = this.instantiate()
-        this.setting()
+        this.camera = this.instantiate();
+        this.setting();
     }
 
     instantiate(): Camera {
@@ -18,7 +18,6 @@ export class CamaraManager implements GlobalObject<Camera> {
     }
 
     getCamera() {
-        return this.camera
+        return this.camera;
     }
 }
-

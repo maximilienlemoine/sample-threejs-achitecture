@@ -1,12 +1,12 @@
-import {GlobalObject} from "../../utils/interfaces/global-object.ts";
-import {DirectionalLight, Light} from "three";
+import { GlobalObject } from "../../utils/interfaces/global-object.ts";
+import { DirectionalLight, Light } from "three";
 
 export class DirectionalLightManager implements GlobalObject<Light> {
-    protected directionalLight: Light
+    protected directionalLight: Light;
 
     constructor() {
-        this.directionalLight = this.instantiate()
-        this.setting()
+        this.directionalLight = this.instantiate();
+        this.setting();
     }
 
     instantiate(): Light {
@@ -18,6 +18,6 @@ export class DirectionalLightManager implements GlobalObject<Light> {
     }
 
     getDirectionalLight() {
-        return this.directionalLight
+        return this.directionalLight;
     }
 }

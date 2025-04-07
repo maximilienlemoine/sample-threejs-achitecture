@@ -1,4 +1,4 @@
-export interface GlobalObject<T>{
+export interface GlobalObject<T> {
     instantiate(): T;
     setting(): void;
 }
