@@ -6,6 +6,7 @@ import { AmbientLightManager } from "./globals/lights/ambient-light.ts";
 import { CubeManager } from "./feature/cube.ts";
 import { Loader } from "./globals/loader.ts";
 import { Updater } from "./globals/updater.ts";
+import { Counter } from "../interface/counter.ts";
 
 console.info("Game : READY");
 
@@ -30,7 +31,8 @@ scene.add(ambientLight);
 
 // ---- Feature ---- //
 
-const cubeManager = new CubeManager(sceneManager);
+const counterCube = new Counter("counter-cube");
+const cubeManager = new CubeManager(sceneManager, counterCube);
 
 // ---- Loader/Updater---- //
 const loader = new Loader(cubeManager);

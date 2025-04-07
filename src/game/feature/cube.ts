@@ -2,9 +2,11 @@ import { GameObject } from "../utils/interfaces/game-object.ts";
 import { BoxGeometry, Mesh, MeshBasicMaterial, Object3D, Scene, Vector3 } from "three";
 import { SceneManager } from "../globals/scene.ts";
 import { getRandomInt } from "../utils/maths.ts";
+import { Counter } from "../../interface/counter.ts";
 
 export class CubeManager implements GameObject {
     private scene: Scene;
+    private counter: Counter;
 
     private cubes: Object3D[] = [];
     private lastSpawn: number = 0;
@@ -12,12 +14,14 @@ export class CubeManager implements GameObject {
     private lifeTime: number = 2000;
     private cubeSpeed: number = 0.007;
 
-    constructor(sceneManager: SceneManager) {
+    constructor(sceneManager: SceneManager, counterCube: Counter) {
         this.scene = sceneManager.getScene();
+        this.counter = counterCube;
     }
 
     private addCube(cube: Object3D) {
         this.cubes.push(cube);
+        this.counter.increment();
     }
 
     public removeCube = (index: number) => {

@@ -1,5 +1,6 @@
 import { Timer } from "./utils/timer.ts";
 import "./styles/timer.css";
+import "./styles/counter.css";
 
 console.info("Interface : READY");
 
