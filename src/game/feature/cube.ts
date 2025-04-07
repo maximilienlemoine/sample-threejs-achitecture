@@ -10,9 +10,11 @@ export class CubeManager implements GameObject {
 
     private cubes: Object3D[] = [];
     private lastSpawn: number = 0;
-    private spawnInterval: number = 1000;
+    public spawnInterval: number = 1000;
     private lifeTime: number = 2000;
-    private cubeSpeed: number = 0.007;
+    public cubeSpeed: number = 0.007;
+
+    public cubeColor: number = 0x00ff00;
 
     constructor(sceneManager: SceneManager, counterCube: Counter) {
         this.scene = sceneManager.getScene();
@@ -54,7 +56,7 @@ export class CubeManager implements GameObject {
     }
 
     private instantiateCube(): Mesh {
-        return new Mesh(new BoxGeometry(0.5, 1, 0.5), new MeshBasicMaterial({ color: 0x8b4513 }));
+        return new Mesh(new BoxGeometry(0.5, 1, 0.5), new MeshBasicMaterial({ color: this.cubeColor }));
     }
 
     private checkDispawnCube(cube: Object3D, cubeIndex: number, timestamp: number) {
@@ -83,5 +85,9 @@ export class CubeManager implements GameObject {
 
     private mooveCube(cube: Object3D) {
         cube.position.add(cube.userData.vector);
+    }
+
+    public setCubeColor(color: number) {
+        this.cubeColor = color;
     }
 }

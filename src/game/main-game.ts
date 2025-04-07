@@ -7,25 +7,36 @@ import { CubeManager } from "./feature/cube.ts";
 import { Loader } from "./globals/loader.ts";
 import { Updater } from "./globals/updater.ts";
 import { Counter } from "../interface/counter.ts";
+import {
+    setAmbientLightManager,
+    setCameraManager,
+    setCubeManager,
+    setDirectionalLightManager,
+    setSceneManager,
+} from "./game-element-manager.ts";
 
 console.info("Game : READY");
 
 // ---- Basics ---- //
 const sceneManager = new SceneManager();
+setSceneManager(sceneManager);
 const scene = sceneManager.getScene();
 
 const rendererManager = new RendererManager();
 const renderer = rendererManager.getRenderer();
 
 const cameraManager = new CamaraManager();
+setCameraManager(cameraManager);
 const camera = cameraManager.getCamera();
 
 // ---- Light ---- //
 const directionalLightManager = new DirectionalLightManager();
+setDirectionalLightManager(directionalLightManager);
 const directionalLight = directionalLightManager.getDirectionalLight();
 scene.add(directionalLight);
 
 const ambientLightManager = new AmbientLightManager();
+setAmbientLightManager(ambientLightManager);
 const ambientLight = ambientLightManager.getAmbientLight();
 scene.add(ambientLight);
 
@@ -33,6 +44,7 @@ scene.add(ambientLight);
 
 const counterCube = new Counter("counter-cube");
 const cubeManager = new CubeManager(sceneManager, counterCube);
+setCubeManager(cubeManager);
 
 // ---- Loader/Updater---- //
 const loader = new Loader(cubeManager);
