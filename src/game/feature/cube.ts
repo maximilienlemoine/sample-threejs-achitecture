@@ -21,6 +21,10 @@ export class CubeManager implements GameObject {
         this.counter = counterCube;
     }
 
+    getCubes() {
+        return this.cubes;
+    }
+
     private addCube(cube: Object3D) {
         this.cubes.push(cube);
         this.counter.increment();
@@ -47,7 +51,7 @@ export class CubeManager implements GameObject {
         }
     }
 
-    private spawnCube(timestamp: number, deltaTime: number) {
+    spawnCube(timestamp: number, deltaTime: number) {
         const cube = this.instantiateCube();
         cube.userData.spawnTime = timestamp;
         cube.userData.vector = this.getVelocityArray(deltaTime);
