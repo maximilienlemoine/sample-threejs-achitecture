@@ -12,7 +12,8 @@
         "prettier": "prettier . --write",
         "prettier:check": "prettier . --check",
         "jest": "jest",
-        "cypress": "npx cypress run"
+        "cypress": "npx cypress run",
+        "cypress:ci": "start-server-and-test dev http://localhost:5173 'cypress run'"
     },
     "devDependencies": {
         "@eslint/js": "^9.24.0",

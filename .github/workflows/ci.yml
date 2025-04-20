@@ -31,4 +31,4 @@ jobs:
               run: npm run jest
 
             - name: Run Cypress
-              run: npm run cypress
+              run: npm run cypress:ci
