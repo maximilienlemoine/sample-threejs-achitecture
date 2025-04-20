@@ -27,5 +27,8 @@ jobs:
             - name: Run Linter
               run: npm run lint
 
-            - name: Run Test
-              run: npm run test
+            - name: Run Jest
+              run: npm run jest
+
+            - name: Run Cypress
+              run: npm run cypress
