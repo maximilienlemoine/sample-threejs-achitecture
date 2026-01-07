@@ -12,8 +12,9 @@ import {
     setCameraManager,
     setCubeManager,
     setDirectionalLightManager,
-    setSceneManager,
+    setSceneManager
 } from "./game-element-manager.ts";
+import { initDebug } from "../interface/debug.ts";
 
 console.info("Game : READY");
 
@@ -24,6 +25,7 @@ const scene = sceneManager.getScene();
 
 const rendererManager = new RendererManager();
 const renderer = rendererManager.getRenderer();
+await rendererManager.setting() // Call ici pour call init de facon async
 
 const cameraManager = new CamaraManager();
 setCameraManager(cameraManager);
@@ -67,3 +69,5 @@ function animate(timestamp: number) {
 requestAnimationFrame(animate);
 
 document.body.appendChild(renderer.domElement);
+
+initDebug()

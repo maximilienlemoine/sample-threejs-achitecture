@@ -1,23 +1,23 @@
-import { WebGLRenderer } from "three";
+import { WebGPURenderer } from "three/webgpu";
 import { GlobalObject } from "../utils/interfaces/global-object.ts";
 
-export class RendererManager implements GlobalObject<WebGLRenderer> {
-    protected renderer: WebGLRenderer;
+export class RendererManager implements GlobalObject<WebGPURenderer> {
+    protected renderer: WebGPURenderer;
 
     constructor() {
         this.renderer = this.instantiate();
-        this.setting();
     }
 
     instantiate() {
-        return new WebGLRenderer();
+        return new WebGPURenderer()
     }
 
-    setting(): void {
-        this.renderer.setSize(window.innerWidth - 0.1, window.innerHeight - 0.1);
+    public async setting(): Promise<void> {
+        await this.renderer.init()
+        this.renderer.setSize(window.innerWidth, window.innerHeight);
     }
 
-    getRenderer(): WebGLRenderer {
+    getRenderer(): WebGPURenderer {
         return this.renderer;
     }
 }
