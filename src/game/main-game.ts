@@ -24,7 +24,7 @@ const scene = sceneManager.getScene();
 
 const rendererManager = new RendererManager();
 const renderer = rendererManager.getRenderer();
-renderer.setAnimationLoop(animate)
+renderer.setAnimationLoop(animate);
 
 const cameraManager = new CamaraManager();
 setCameraManager(cameraManager);

@@ -6,7 +6,7 @@ export class RendererManager implements GlobalObject<WebGPURenderer> {
 
     constructor() {
         this.renderer = this.instantiate();
-        this.setting()
+        this.setting();
     }
 
     instantiate() {
