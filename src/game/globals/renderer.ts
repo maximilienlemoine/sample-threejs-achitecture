@@ -9,11 +9,11 @@ export class RendererManager implements GlobalObject<WebGPURenderer> {
     }
 
     instantiate() {
-        return new WebGPURenderer()
+        return new WebGPURenderer();
     }
 
     public async setting(): Promise<void> {
-        await this.renderer.init()
+        await this.renderer.init();
         this.renderer.setSize(window.innerWidth, window.innerHeight);
     }
 
