@@ -14,7 +14,6 @@ import {
     setDirectionalLightManager,
     setSceneManager,
 } from "./game-element-manager.ts";
-import { initDebug } from "../interface/debug.ts";
 
 console.info("Game : READY");
 
@@ -25,7 +24,7 @@ const scene = sceneManager.getScene();
 
 const rendererManager = new RendererManager();
 const renderer = rendererManager.getRenderer();
-await rendererManager.setting(); // Call ici pour call init de facon async
+renderer.setAnimationLoop(animate)
 
 const cameraManager = new CamaraManager();
 setCameraManager(cameraManager);
@@ -62,12 +61,6 @@ function animate(timestamp: number) {
     renderer.render(scene, camera);
 
     updater.onUpdate(timestamp, deltaTime);
-
-    requestAnimationFrame(animate);
 }
 
-requestAnimationFrame(animate);
-
 document.body.appendChild(renderer.domElement);
-
-initDebug();
